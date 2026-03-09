@@ -12,6 +12,9 @@ export default function App() {
       setLoading(true); setResult("");
       const fd = new FormData();
       fd.append("resume", file);
+      app.get("/", (req, res) => {
+  res.send("AI Resume Analyzer API is running");
+});
      const res = await fetch("https://ai-resume-analyzer-92gr.onrender.com/analyze", {
   method: "POST",
   body: fd
