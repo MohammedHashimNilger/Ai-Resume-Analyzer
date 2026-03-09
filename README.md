@@ -3,8 +3,8 @@
 An AI-powered web application that analyzes resumes and provides feedback on strengths, weaknesses, and improvements using LLMs.
 
 ## Live Demo
-Frontend: https://your-vercel-link.vercel.app  
-Backend API: https://your-render-link.onrender.com
+Frontend: https://ai-powered-resume-analyzer-omega.vercel.app/
+
 
 ## Features
 - Upload PDF resume
