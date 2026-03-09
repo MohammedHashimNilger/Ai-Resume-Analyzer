@@ -12,7 +12,7 @@ export default function App() {
       setLoading(true); setResult("");
       const fd = new FormData();
       fd.append("resume", file);
-      const res = await fetch("http://localhost:3000/analyze", { method: "POST", body: fd });
+      const res = await fetch("https://ai-resume-analyzer-92gr.onrender.com/", { method: "POST", body: fd });
       if (!res.ok) throw new Error();
       const data = await res.json();
       setResult(data.result);
