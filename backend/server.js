@@ -18,6 +18,10 @@ const client = new OpenAI({
   baseURL: "https://api.groq.com/openai/v1"
 });
 
+app.get("/", (req, res) => {
+  res.send("AI Resume Analyzer API is running");
+});
+
 function extractTextFromPDF(filePath) {
   return new Promise((resolve, reject) => {
     const pdfParser = new PDFParser();
@@ -73,7 +77,7 @@ ${resumeText.slice(0, 4000)}
       result: response.choices[0].message.content
     });
 
-    fs.unlinkSync(req.file.path);
+    if (req.file) fs.unlink(req.file.path, () => {});
 
   } catch (error) {
     console.error("Server error:", error);
@@ -82,10 +86,6 @@ ${resumeText.slice(0, 4000)}
 });
 
 const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("AI Resume Analyzer API is running");
-});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
