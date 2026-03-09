@@ -16,7 +16,11 @@ export default function App() {
      method: "POST",
      body: fd
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+  const text = await res.text();
+  console.error("Server error:", text);
+  throw new Error("Server error");
+}
       const data = await res.json();
       setResult(data.result);
     } catch { alert("Something went wrong. Check backend."); }
