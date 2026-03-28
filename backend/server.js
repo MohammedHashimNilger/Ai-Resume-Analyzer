@@ -91,10 +91,3 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-const cors = require('cors');
-
-app.use(cors({
-  origin: 'https://ai-resume-analyzer-two-rust.vercel.app',
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
